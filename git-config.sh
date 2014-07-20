@@ -19,27 +19,30 @@ cd $OLDPWD
 echo -e "export PS1='\W$(__git_ps1 "(%s)") > '\n" >> ~/bash_profile
 
 # git alias
-#git log --stat --summary  // global statistics about the diff
-#git log --oneline
-#git log -p sha1.. file.c
-#git log --graph --all --decorate
-#git ls-tree
-#git diff --staged
+git --global alias.st "status"
+git --global alias.co "checkout"
+git --global alias.ci "commit"
+git --global alias.df "diff"
+git --global alias.dfs "diff --staged"
+git --global alias.logp "-p"   //sha1..sha2 or br1..b2
+git --global alias.logs "-stat --summary"
+git --global alias.logo "--oneline"
+git --global alias.logg "--graph --all --decorate"
+git --global alias.stashl "stash list"
+git --global alias.stashc "stash clear"
+git --global alias.stashd "stash drop"
+git --global alias.stasha "stash apply"
+git --global alias.stashsh "stash show -p"
+git --global alias.stashsv "stash save" //add comment
+git --global alias.ft "fetch"
+git --global alias.pl "pull"  //fetch+merge
+git --global alias.lst "ls-tree"
+
+# general git command
 #git checkout -b // create un checkout
-#git diff branch1..branch2
 #git branch --merged // list of branches merged in the current one
 #git branch -m old new // rename a branch
-
-#git merge branch
-#fast-forward merge => no changes in master 
-#true merge => master changed
-
 #git merge --abort //in case of conflict
-#git stash -save "comment"
-#git stash list
-#git stash show -p name_of_stash
-#git stash pop name //pop it out of list
-#git stash apply name //keep a copy in the list
-#git stash drop
-#git stash clear //drop all stashes
-# git branch -u // to track the branch 
+#git branch -u // to track the branch 
+#git checkout -b non_tracking origin/non_tracking
+#git push origin --delete non_tracking
